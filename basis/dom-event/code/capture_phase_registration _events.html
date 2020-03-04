@@ -1,0 +1,38 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Useful event target example</title>
+    <style>
+      div {
+        background-color: red;
+        height: 100px;
+        width: 25%;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+        let parentDiv = document.createElement('div');
+        let childDiv = document.createElement('div');
+        parentDiv.appendChild(childDiv)
+        document.body.appendChild(parentDiv);
+        parentDiv.addEventListener("click", function(){console.log("parent")}, true)
+        childDiv.addEventListener("click", function(){console.log("child")}, true)
+    </script>
+  </body>
+</html>
+<!-- 
+  parentDiv.addEventListener("click", function(){console.log("parent")})
+  childDiv.addEventListener("click", function(){console.log("child")})
+  child
+  parent 
+-->
+
+<!-- 
+  parentDiv.addEventListener("click", function(){console.log("parent")}, true)
+  childDiv.addEventListener("click", function(){console.log("child")}, true)
+  parent
+  child 
+-->
