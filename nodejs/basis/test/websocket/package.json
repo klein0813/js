@@ -1,0 +1,30 @@
+{
+  "name": "chat-room",
+  "version": "1.0.0",
+  "description": "chat room",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/klein0813/nodejs.git"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "kz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/klein0813/nodejs/issues"
+  },
+  "homepage": "https://github.com/klein0813/nodejs#readme",
+  "dependencies": {
+    "cookies": "^0.8.0",
+    "fingerprintjs2": "^2.1.0",
+    "node-machine-id": "^1.1.12",
+    "redis": "^2.8.0",
+    "uuid": "^3.3.3"
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>login</title>
+<style type="text/css">
+    body {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    input:nth-child(n+1) {
+        margin-top: 5%;
+    }
+</style>
+<script type="text/javascript" src="/public/fingerprint2.min.js"></script>
+        <script type="text/javascript">
+            let options = {
+                excludes: {
+                    userAgent: true,
+                    audio: true,
+                    canvas: true,
+                    enumerateDevices: true,
+                    fonts: true,
+                    fontsFlash: true,
+                    webgl: true
+                }
+            }
+            Fingerprint2.get(options, function (components) {
+                let values = components.map(function (component) { return component.value })
+                let murmur = Fingerprint2.x64hash128(values.join(''), 31)
+                let body = {
+                    value: murmur
+                }
+                fetch(new Request('http://192.168.22.35:9999/fingerprint', {method: 'POST', body: JSON.stringify(body)}))
+            })
+        </script>
+</head>
+<body>
+    <form action="http://192.168.22.35:9999/login" method="POST">
+        用户名&emsp;<input type="text" name="name"><br>
+        密&emsp;码&emsp;<input type="text" name="password"><br>
+        <input type="submit" value="&#8197;登&emsp;录&#8197;">
+    </form>
+</body>
+</html>

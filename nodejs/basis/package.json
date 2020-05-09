@@ -1,0 +1,32 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "just a demo",
+  "main": "main.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "ws": "1.1.5"
+  },
+  "config": {
+    "env": [
+      "dev",
+      "pro"
+    ],
+    "envDefault": "dev"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm test",
+    "start": "node main.js",
+    "server": "node server.js --env=dev"
+  },
+  "keywords": [
+    "node",
+    "demo"
+  ],
+  "author": "kz",
+  "license": "ISC"
+}
