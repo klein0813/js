@@ -1,23 +1,42 @@
 POINT
 ====
-* router.push(location)===window.history.pushState
+* 父组件获取子组件数据和方法
 ```
-// 字符串
-router.push('home')
-// 对象
-router.push({ path: 'home' })
-// 命名的路由
-router.push({ name: 'user', params: { userId: 123 }})
-// 带查询参数，变成 /register?plan=private
-router.push({ path: 'register', query: { plan: 'private' }})
+<v-header ref="header>
+
+this.$refs.header.数据
+this.$refs.header.方法
 ```
-* router.replace(location)===window.history.replaceState
-* router.go(n)===window.history.go
+
+* 子组件获取父组件的数据和方法
 ```
-// 在浏览器记录中前进一步，等同于 history.forward()
-router.go(1)
-// 后退一步记录，等同于 history.back()
-router.go(-1)
-// 前进 3 步记录
-router.go(3)
+this.$parent.数据
+this.$parent.方法
+```
+
+* 非父子关系组件通讯
+```
+借助 vue 实例
+// VueEvent.js
+import Vue from "vue"
+let vueEvent = new Vue();
+
+export default vueEvent;
+
+// publish.vue
+import eventVue from "./VueEvent.js"
+
+...
+eventVue.$emit('name', data)
+...
+
+// recivier.vue
+import eventVue from "./VueEvent.js"
+
+...
+eventVue.$on('name', function(){
+
+})
+...
+
 ```
