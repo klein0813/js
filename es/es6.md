@@ -36,49 +36,54 @@ let [a, b, c] = [1, 2, 3];
       console.log('aaa');
     }
     let [x = f()] = [1];
-  ``` 
+  ```
 
   * let [x = y, y = 1] = [];     // ReferenceError: y is not defined
     * 逗号运算符，从左到右一次执行，执行上面最后一个表达式之所以会报错，是因为x用y做默认值时，y还没有声明
 
 > 对象的解构
 
-```
-let { foo, bar } = { foo: 'aaa', bar: 'bbb' };
-let { foo: fo, bar: b } = { foo: 'aaa', bar: 'bbb' };
-// fo 'aaa', b 'bbb'
+```js
+  let { foo, bar } = { foo: 'aaa', bar: 'bbb' };
+  let { foo: fo, bar: b } = { foo: 'aaa', bar: 'bbb' };
+  // fo 'aaa', b 'bbb'
 ```
 
 * 区别：数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值
 
-
 > 相同点
-  * 可以用于嵌套结构
-  * 默认值生效的条件是，对象的属性值严格等于undefined
+
+* 可以用于嵌套结构
+* 默认值生效的条件是，对象的属性值严格等于undefined
 
 > 注意点
-  * 结构对象时，不能将“{”至于句首，避免 JavaScript 将其解释为代码块
-  * 解构赋值允许等号左边的模式之中，不放置任何变量名
-    * 虽然可能没有意义，但语法是合法的
-  * 字符串的解构赋值
-    ```js
-      const [a, b, c, d, e] = 'hello';
-      a // "h"
-      // length 是字符串的对象的 length 属性，len 是变量名
-      let {length : len} = 'hello';
-      len // 5
-    ```
+
+* 结构对象时，不能将“{”至于句首，避免 JavaScript 将其解释为代码块
+* 解构赋值允许等号左边的模式之中，不放置任何变量名
+  * 虽然可能没有意义，但语法是合法的
+* 字符串的解构赋值
+
+  ```js
+    const [a, b, c, d, e] = 'hello';
+    a // "h"
+    // length 是字符串的对象的 length 属性，len 是变量名
+    let {length : len} = 'hello';
+    len // 5
+  ```
+
   * 解构赋值时，如果等号右边是数值和布尔值，则会先转为对象
+
     ```js
       let {toString: s} = 123;
       s === Number.prototype.toString // true
     ```
+
     * 解构赋值的规则是，只要等号右边的值不是对象或数组，就先将其转为对象
     * 由于undefined和null无法转为对象，所以对它们进行解构赋值，都会报错
   * 函数参数支持解构
 
 > 圆括号问题
-  * 可以使用圆括号的情况只有一种：赋值语句的非模式部分，可以使用圆括号
+
+* 可以使用圆括号的情况只有一种：赋值语句的非模式部分，可以使用圆括号
 
 > 任何部署了 Iterator 接口的对象，都可以用for...of循环遍历
-
