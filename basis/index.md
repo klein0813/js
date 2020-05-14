@@ -1,5 +1,30 @@
 # JavaScript BASIS
 
+> 数值
+
+* JavaScript 采用 IEEE 754 标准，数值存储为64位双精度格式，数值精度最多可以达到 53 个二进制位（1 个隐藏位与 52 个有效位）
+
+* Number.MAX_VALUE - JS可表示的最大数 - 1.7976931348623157e+308
+
+  ```js
+    Number.MAX_VALUE + 100 === Number.MAX_VALUE // true
+  ```
+
+* Number.MIN_VALUE - JS可表示的最接近0的正数 - 5e-324
+
+  ```js
+    5E-325    //  0
+    -5E-325   // -0
+  ```
+
+* +0(0) 与 -0
+  * 绝大部分情况下，两者没有区别
+
+```js
+1 / +0 //  Infinity // > 0
+1 / -0 // -Infinity // < 0
+```
+
 > 变量提升
 
 * 函数及变量的声明都将被提升到函数的最顶部
