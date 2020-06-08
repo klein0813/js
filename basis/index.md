@@ -4,25 +4,25 @@
 
 * JavaScript 采用 IEEE 754 标准，数值存储为64位双精度格式，数值精度最多可以达到 53 个二进制位（1 个隐藏位与 52 个有效位）
 
-* Number.MAX_VALUE - JS可表示的最大数 - 1.7976931348623157e+308
+* `Number.MAX_VALUE` - JS可表示的最大数 `- 1.7976931348623157e+308`
 
   ```js
     Number.MAX_VALUE + 100 === Number.MAX_VALUE // true
   ```
 
-* Number.MIN_VALUE - JS可表示的最接近0的正数 - 5e-324
+* `Number.MIN_VALUE` - JS可表示的最接近0的正数 `- 5e-324`
 
   ```js
     5E-325    //  0
     -5E-325   // -0
   ```
 
-* +0(0) 与 -0
+* `+0(0)` 与` -0`
   * 绝大部分情况下，两者没有区别
 
 ```js
-1 / +0 //  Infinity // > 0
-1 / -0 // -Infinity // < 0
+  1 / +0 //  Infinity // > 0
+  1 / -0 // -Infinity // < 0
 ```
 
 > 变量提升
@@ -31,7 +31,11 @@
 * 变量可以在使用后声明，也就是变量可以先使用再声明
 * 初始化不会提升
 
-> 严格模式(use strict) [`ES5`]
+> `Object.create()` - Object.create(proto[, propertiesObject])`
+
+* 创建一个新对象，使用现有的对象来提供新创建的对象的`__proto__
+`
+> 严格模式(`use strict`) [`ES5`]
 
 *
 
@@ -45,6 +49,14 @@
   * 函数作为对象方法调用，会使得 this 的值成为对象本身
 * 使用构造函数调用函数
   * 构造函数中 this 关键字没有任何的值。this 的值在函数调用实例化对象(new object)时创建
+
+> `call()`、`apply()`、`bind()`
+  * 都是用来重定义 this 这个对象的
+  * `bind` 返回的是一个新的函数，你必须调用它才会被执行
+  * 三个函数的第一个参数都是 this 的指向对象
+  * `call` 的参数是直接放进去的，第二第三第 n 个参数全都用逗号分隔
+  * `apply` 的所有参数都必须放在一个数组里面传进去
+  * `bind` 除了返回是函数以外，它 的参数和 call 一样
 
 > JavaScript 闭包
 
