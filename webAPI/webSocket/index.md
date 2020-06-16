@@ -193,7 +193,7 @@ WebSocket是一种在单个TCP连接上进行全双工通信<a href="#1"><sup>[1
     }
   ```
 
-[实例](..\nodejs\basis\test\websocket\public\ws.html)
+[实例](..\..\nodejs\basis\test\websocket\public\ws.html)
 
 ## 备注
 [1] <a name="1">全双工通信, 又称为双向同时通信，即通信的双方可以同时发送和接收信息的信息交互方式</a><br>
